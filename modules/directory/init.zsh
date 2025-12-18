@@ -18,8 +18,10 @@ setopt PUSHD_TO_HOME        # Push to home directory when no argument is given.
 setopt CDABLE_VARS          # Change directory to a path stored in a variable.
 setopt MULTIOS              # Write to multiple descriptors.
 setopt EXTENDED_GLOB        # Use extended globbing syntax.
-unsetopt CLOBBER            # Do not overwrite existing files with > and >>.
-                            # Use >! and >>! to bypass.
+if [ -z "$INTELLIJ_ENVIRONMENT_READER" ]; then
+  unsetopt CLOBBER            # Do not overwrite existing files with > and >>.
+                              # Use >! and >>! to bypass.
+fi
 
 #
 # Aliases
